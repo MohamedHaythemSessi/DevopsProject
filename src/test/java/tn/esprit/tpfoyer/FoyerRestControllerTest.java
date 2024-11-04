@@ -20,7 +20,7 @@ import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-public class FoyerRestControllerTest {
+ class FoyerRestControllerTest {
 
     private MockMvc mockMvc;
 
@@ -37,7 +37,7 @@ public class FoyerRestControllerTest {
     }
 
     @Test
-    public void testGetFoyers() throws Exception {
+     void testGetFoyers() throws Exception {
         List<Foyer> foyers = Arrays.asList(
                 new Foyer(1L, "Foyer A", 100, null, null),
                 new Foyer(2L, "Foyer B", 200, null, null)
@@ -51,7 +51,7 @@ public class FoyerRestControllerTest {
     }
 
     @Test
-    public void testRetrieveFoyer() throws Exception {
+     void testRetrieveFoyer() throws Exception {
         Foyer foyer = new Foyer(1L, "Foyer A", 100, null, null);
         when(foyerService.retrieveFoyer(1L)).thenReturn(foyer);
 
@@ -61,7 +61,7 @@ public class FoyerRestControllerTest {
     }
 
     @Test
-    public void testAddFoyer() throws Exception {
+     void testAddFoyer() throws Exception {
         Foyer foyer = new Foyer(1L, "Foyer A", 100, null, null);
         when(foyerService.addFoyer(any(Foyer.class))).thenReturn(foyer);
 
@@ -73,7 +73,7 @@ public class FoyerRestControllerTest {
     }
 
     @Test
-    public void testRemoveFoyer() throws Exception {
+    void testRemoveFoyer() throws Exception {
         doNothing().when(foyerService).removeFoyer(1L);
 
         mockMvc.perform(delete("/foyer/remove-foyer/1"))
@@ -81,7 +81,7 @@ public class FoyerRestControllerTest {
     }
 
     @Test
-    public void testModifyFoyer() throws Exception {
+     void testModifyFoyer() throws Exception {
         Foyer foyer = new Foyer(1L, "Foyer A", 100, null, null);
         when(foyerService.modifyFoyer(any(Foyer.class))).thenReturn(foyer);
 
